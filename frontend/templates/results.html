@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results | Bilingual CLIR</title>
+    
+    <!-- CSS stylesheet link -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Search Results</h1>
+            <p class="subtitle">Query: "<span style="color: var(--accent-indigo); font-weight: 500;">{{ query }}</span>" (Method: {{ method.upper() }})</p>
+        </header>
+
+        <!-- Back Button -->
+        <div style="margin-bottom: 2rem;">
+            <a href="/" style="text-decoration: none; color: var(--text-primary); font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid var(--border-color); padding: 0.6rem 1.2rem; border-radius: 12px; background: var(--bg-card); transition: all 0.3s ease;">
+                &larr; Back to Search
+            </a>
+        </div>
+
+        <!-- Search Results Grid -->
+        <section class="results-section">
+            <div class="results-grid">
+                {% if results %}
+                    {% for doc in results %}
+                        <div class="result-card" onclick="openDocModal('{{ doc.doc_id }}')">
+                            <div class="result-header-row">
+                                <h3 class="result-title">{{ doc.title }}</h3>
+                                <span class="lang-indicator {{ doc.language }}">{{ '🇬🇧 English' if doc.language == 'english' else '🇪🇹 Amharic' }}</span>
+                            </div>
+                            <p class="result-snippet">{{ doc.snippet }}</p>
+                            <div class="result-footer">
+                                <span class="score-badge">Relevance: {{ (doc.score * 100) | round | int }}%</span>
+                                <span style="color: var(--text-muted);">Doc ID: {{ doc.doc_id }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div style="text-align: center; color: var(--text-secondary); width: 100%; padding: 4rem;">
+                        No relevant documents found. Try adjusting options or translating your query.
+                    </div>
+                {% endif %}
+            </div>
+        </section>
+    </div>
+
+    <!-- Document Modal -->
+    <div id="doc-modal" class="modal">
+        <div class="modal-content">
+            <button id="modal-close" class="modal-close" onclick="closeModal()">&times;</button>
+            <h2 id="modal-title" class="modal-title">Document Title</h2>
+            <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin-bottom: 1.5rem;">
+            <div id="modal-body" class="modal-body">
+                Document Content
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openDocModal(docId) {
+            const modal = document.getElementById('doc-modal');
+            const title = document.getElementById('modal-title');
+            const body = document.getElementById('modal-body');
+            
+            title.textContent = 'Loading Document...';
+            body.textContent = '';
+            modal.classList.add('active');
+
+            fetch('/document/' + docId)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.error) {
+                        title.textContent = 'Error';
+                        body.textContent = data.error;
+                    } else {
+                        title.textContent = data.title;
+                        body.textContent = data.content;
+                    }
+                })
+                .catch(err => {
+                    title.textContent = 'Error';
+                    body.textContent = 'Could not retrieve document: ' + err.message;
+                });
+        }
+
+        function closeModal() {
+            document.getElementById('doc-modal').classList.remove('active');
+        }
+
+        // Close on click outside modal content
+        window.onclick = function(event) {
+            const modal = document.getElementById('doc-modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+
+    <footer style="text-align: center; color: var(--text-muted); font-size: 0.85rem; padding: 2rem 0; border-top: 1px solid rgba(255, 255, 255, 0.05); margin-top: 4rem;">
+        &copy; 2026 Multilingual Information Retrieval System | English-Amharic CLIR
+    </footer>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilingual Search Engine | English & Amharic CLIR</title>
+    
+    <!-- CSS stylesheet link -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Bilingual CLIR Engine</h1>
+            <p class="subtitle">Cross-Lingual Information Retrieval System (English ↔ Amharic)</p>
+        </header>
+
+        <!-- Search Control Panel -->
+        <section class="search-container">
+            <form id="search-form" class="search-form">
+                <div class="search-input-wrapper">
+                    <input type="text" id="search-input" class="search-input" placeholder="Type your query in English or Amharic (e.g. coffee ceremony or የአድዋ ጦርነት)..." required autocomplete="off">
+                </div>
+                <button type="submit" class="search-btn">Search</button>
+            </form>
+
+            <div class="options-grid">
+                <div class="option-group">
+                    <label class="option-label" for="method-select">Retrieval Model</label>
+                    <select id="method-select" class="option-select">
+                        <option value="bm25">BM25 (Recommended)</option>
+                        <option value="tfidf">TF-IDF</option>
+                    </select>
+                </div>
+                <div class="option-group">
+                    <label class="option-label" for="lang-select">Target Document Language</label>
+                    <select id="lang-select" class="option-select">
+                        <option value="both">Both Languages (Merged)</option>
+                        <option value="english">English Documents Only</option>
+                        <option value="amharic">Amharic Documents Only</option>
+                    </select>
+                </div>
+                <div class="option-group">
+                    <label class="option-label">Advanced Query Tuning</label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="expand-check" checked> Query Expansion (Synonyms)
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="feedback-check"> Pseudo-Relevance Feedback
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Results Panel -->
+        <section class="results-section">
+            <div class="results-header">
+                <h2 id="results-header-text" style="font-weight: 500;">Search Results</h2>
+                <div id="detected-badge" class="detected-badge">
+                    <span>Detected:</span>
+                    <span id="detected-text" style="font-weight: 700;">-</span>
+                </div>
+            </div>
+            
+            <div id="results-container" class="results-grid">
+                <div style="text-align: center; color: var(--text-secondary); width: 100%; padding: 3rem;">
+                    Enter a query above to search the document database.
+                </div>
+            </div>
+        </section>
+
+        <!-- Evaluation Panel -->
+        <section id="evaluation" class="eval-panel">
+            <div class="eval-header">
+                <div>
+                    <h2 style="font-weight: 600; font-size: 1.5rem; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">System Evaluation Dashboard</h2>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.2rem;">Run standard IR queries to compute Precision, Recall, Precision@K, and MAP.</p>
+                </div>
+                <button id="run-eval-btn" class="eval-btn">Execute Evaluation Run</button>
+            </div>
+            
+            <div id="eval-results-wrapper" class="eval-results-wrapper">
+                <div class="eval-table-container">
+                    <table class="eval-table">
+                        <thead>
+                            <tr>
+                                <th>Retrieval Configuration</th>
+                                <th>Mean Precision</th>
+                                <th>Mean Recall</th>
+                                <th>Mean P@1</th>
+                                <th>Mean P@3</th>
+                                <th>Mean P@5</th>
+                                <th>MAP (Mean Average Precision)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="eval-table-body">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Document Modal -->
+    <div id="doc-modal" class="modal">
+        <div class="modal-content">
+            <button id="modal-close" class="modal-close">&times;</button>
+            <h2 id="modal-title" class="modal-title">Document Title</h2>
+            <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin-bottom: 1.5rem;">
+            <div id="modal-body" class="modal-body">
+                Document Content
+            </div>
+        </div>
+    </div>
+
+    <footer style="text-align: center; color: var(--text-muted); font-size: 0.85rem; padding: 2rem 0; border-top: 1px solid rgba(255, 255, 255, 0.05); margin-top: 4rem;">
+        &copy; 2026 Multilingual Information Retrieval System | English-Amharic CLIR
+    </footer>
+
+    <!-- Main JavaScript Link -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

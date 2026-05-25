@@ -1,0 +1,973 @@
+{
+  "en_to_am": {
+    "coffee": [
+      "ቡና"
+    ],
+    "ceremony": [
+      "ሥነ-ሥርዓት",
+      "ስነ-ስርዓት"
+    ],
+    "cultural": [
+      "ባህላዊ",
+      "ባህል"
+    ],
+    "culture": [
+      "ባህል"
+    ],
+    "traditional": [
+      "ባህላዊ"
+    ],
+    "clay": [
+      "ሸክላ"
+    ],
+    "pot": [
+      "ጀበና",
+      "ዕቃ"
+    ],
+    "jebena": [
+      "ጀበና"
+    ],
+    "export": [
+      "የወጪ ንግድ",
+      "ኤክስፖርት"
+    ],
+    "economy": [
+      "ኢኮኖሚ",
+      "ኤኮኖሚ"
+    ],
+    "yirgacheffe": [
+      "ይርጋጨፌ"
+    ],
+    "harar": [
+      "ሐረር"
+    ],
+    "sidamo": [
+      "ሲዳሞ"
+    ],
+    "world": [
+      "ዓለም",
+      "አለም"
+    ],
+    "lalibela": [
+      "ላሊበላ"
+    ],
+    "monolithic": [
+      "ውቅር"
+    ],
+    "rock": [
+      "አለት",
+      "ድንጋይ"
+    ],
+    "hewn": [
+      "የተፈለፈለ",
+      "ውቅር"
+    ],
+    "churches": [
+      "አብያተ ክርስቲያናት",
+      "አብያተ ክርስቲያን"
+    ],
+    "church": [
+      "ቤተክርስቲያን",
+      "ቤተ ክርስቲያን"
+    ],
+    "king": [
+      "ንጉስ",
+      "ንጉሥ"
+    ],
+    "pilgrimage": [
+      "ንግደት",
+      "ጉዞ"
+    ],
+    "orthodox": [
+      "ኦርቶዶክስ"
+    ],
+    "georgis": [
+      "ጊዮርጊስ"
+    ],
+    "saint": [
+      "ቅዱስ"
+    ],
+    "cross": [
+      "መስቀል"
+    ],
+    "heritage": [
+      "ቅርስ"
+    ],
+    "engineering": [
+      "ምህንድስና"
+    ],
+    "architecture": [
+      "ስነ-ህንጻ",
+      "ሕንጻ"
+    ],
+    "unesco": [
+      "ዩኔስኮ"
+    ],
+    "addis ababa": [
+      "አዲስ አበባ"
+    ],
+    "capital": [
+      "ዋና ከተማ"
+    ],
+    "diplomatic": [
+      "ዲፕሎማሲ",
+      "ዲፕሎማሲያዊ"
+    ],
+    "hub": [
+      "ማዕከል"
+    ],
+    "africa": [
+      "አፍሪካ"
+    ],
+    "union": [
+      "ህብረት",
+      "ኅብረት"
+    ],
+    "headquarters": [
+      "ዋና መስሪያ ቤት"
+    ],
+    "nations": [
+      "መንግስታት"
+    ],
+    "united": [
+      "የተባበሩት"
+    ],
+    "founded": [
+      "ተመሠረተች",
+      "ተመሠረተ"
+    ],
+    "emperor": [
+      "አፄ",
+      "አጼ"
+    ],
+    "empress": [
+      "እቴጌ",
+      "ዕቴጌ"
+    ],
+    "menelik": [
+      "ምኒልክ"
+    ],
+    "taytu": [
+      "ጣይቱ"
+    ],
+    "mount": [
+      "ተራራ"
+    ],
+    "entoto": [
+      "እንጦጦ"
+    ],
+    "market": [
+      "ገበያ"
+    ],
+    "mercato": [
+      "መርካቶ"
+    ],
+    "lucy": [
+      "ሉሲ"
+    ],
+    "dinkenesh": [
+      "ድንቅነሽ"
+    ],
+    "fossil": [
+      "ቅሪተ አካል"
+    ],
+    "valley": [
+      "ሸለቆ"
+    ],
+    "awash": [
+      "አዋሽ"
+    ],
+    "hominid": [
+      "ሰው መሰል",
+      "ቅሪተ አካል"
+    ],
+    "skeleton": [
+      "አጽም"
+    ],
+    "human": [
+      "ሰው",
+      "የሰው ልጅ"
+    ],
+    "evolution": [
+      "ዝግመተ ለውጥ",
+      "የዝግመተ ለውጥ"
+    ],
+    "cradle": [
+      "መገኛ"
+    ],
+    "humankind": [
+      "የሰው ልጅ"
+    ],
+    "simien": [
+      "ሰሜን"
+    ],
+    "mountains": [
+      "ተራሮች"
+    ],
+    "national": [
+      "ብሔራዊ",
+      "ብሄራዊ"
+    ],
+    "park": [
+      "ፓርክ"
+    ],
+    "wildlife": [
+      "የዱር እንስሳት",
+      "እንስሳት"
+    ],
+    "endemic": [
+      "ተወላጅ"
+    ],
+    "ibex": [
+      "ዋሊያ",
+      "ዋሊያ አይቤክስ"
+    ],
+    "walia": [
+      "ዋሊያ"
+    ],
+    "baboon": [
+      "ጭላዳ ዝንጀሮ",
+      "ዝንጀሮ"
+    ],
+    "gelada": [
+      "ጭላዳ"
+    ],
+    "wolf": [
+      "ቀበሮ",
+      "ቀይ ቀበሮ"
+    ],
+    "ras dashen": [
+      "ራስ ዳሸን"
+    ],
+    "highest": [
+      "ከፍተኛው"
+    ],
+    "runners": [
+      "አትሌቶች",
+      "ሯጮች"
+    ],
+    "runner": [
+      "ሯጭ",
+      "አትሌት"
+    ],
+    "athletics": [
+      "አትሌቲክስ"
+    ],
+    "running": [
+      "ሩጫ"
+    ],
+    "athletes": [
+      "አትሌቶች"
+    ],
+    "legendary": [
+      "ታዋቂ"
+    ],
+    "marathon": [
+      "ማራቶን"
+    ],
+    "barefoot": [
+      "በባዶ እግር",
+      "በባዶ እግሩ"
+    ],
+    "gold": [
+      "ወርቅ"
+    ],
+    "medal": [
+      "ሜዳሊያ"
+    ],
+    "records": [
+      "ሪከርዶች"
+    ],
+    "record": [
+      "ሪከርድ"
+    ],
+    "training": [
+      "ልምምድ"
+    ],
+    "endurance": [
+      "ጽናት"
+    ],
+    "axum": [
+      "አክሱም"
+    ],
+    "kingdom": [
+      "መንግስት",
+      "መንግሥት"
+    ],
+    "obelisks": [
+      "ሐውልቶች",
+      "ሃውልቶች"
+    ],
+    "obelisk": [
+      "ሐውልት",
+      "ሃውልት"
+    ],
+    "granite": [
+      "ግራናይት"
+    ],
+    "stelae": [
+      "ሐውልቶች"
+    ],
+    "ark": [
+      "ታቦት"
+    ],
+    "covenant": [
+      "ቃል ኪዳን"
+    ],
+    "mary": [
+      "ማርያም"
+    ],
+    "zion": [
+      "ጽዮን"
+    ],
+    "blue nile": [
+      "አባይ"
+    ],
+    "falls": [
+      "ፏፏቴ",
+      "ፏፏቴዎች"
+    ],
+    "waterfall": [
+      "ፏፏቴ"
+    ],
+    "river": [
+      "ወንዝ"
+    ],
+    "water": [
+      "ውኃ",
+      "ውሃ"
+    ],
+    "tributary": [
+      "ገባሪ"
+    ],
+    "lake tana": [
+      "ጣና ሐይቅ"
+    ],
+    "new year": [
+      "አዲስ ዓመት",
+      "እንቁጣጣሽ"
+    ],
+    "enkutatash": [
+      "እንቁጣጣሽ"
+    ],
+    "september": [
+      "መስከረም"
+    ],
+    "calendar": [
+      "ዘመን አቆጣጠር"
+    ],
+    "rainy": [
+      "ክረምት"
+    ],
+    "rainy season": [
+      "ክረምት"
+    ],
+    "spring": [
+      "ጸደይ"
+    ],
+    "Adey Abeba": [
+      "አደይ አበባ"
+    ],
+    "flowers": [
+      "አበባዎች"
+    ],
+    "flower": [
+      "አበባ"
+    ],
+    "food": [
+      "ምግብ"
+    ],
+    "traditional food": [
+      "ባህላዊ ምግብ"
+    ],
+    "injera": [
+      "እንጀራ"
+    ],
+    "teff": [
+      "ጤፍ"
+    ],
+    "flour": [
+      "ዱቄት"
+    ],
+    "grain": [
+      "ጥራጥሬ"
+    ],
+    "stew": [
+      "ወጥ"
+    ],
+    "stews": [
+      "ወጦች"
+    ],
+    "doro wat": [
+      "ዶሮ ወጥ"
+    ],
+    "chicken": [
+      "ዶሮ"
+    ],
+    "battle": [
+      "ጦርነት"
+    ],
+    "victory": [
+      "ድል"
+    ],
+    "sovereignty": [
+      "ሉዓላዊነት"
+    ],
+    "independence": [
+      "ነጻነት",
+      "ነፃነት"
+    ],
+    "colonialism": [
+      "ቅኝ ግዛት"
+    ],
+    "renaissance": [
+      "ሕዳሴ",
+      "ህዳሴ"
+    ],
+    "dam": [
+      "ግድብ"
+    ],
+    "hydroelectric": [
+      "የውኃ ኤሌክትሪክ",
+      "የውሃ ኤሌክትሪክ"
+    ],
+    "electricity": [
+      "ኤሌክትሪክ"
+    ],
+    "energy": [
+      "ኃይል",
+      "ኋይል"
+    ],
+    "national unity": [
+      "ብሔራዊ አንድነት"
+    ],
+    "bahir": [
+      "ባህር"
+    ],
+    "dar": [
+      "ዳር"
+    ],
+    "bahir dar": [
+      "ባህር ዳር"
+    ],
+    "bahir dar university": [
+      "ባህር ዳር ዩኒቨርሲቲ"
+    ],
+    "university": [
+      "ዩኒቨርሲቲ"
+    ]
+  },
+  "am_to_en": {
+    "ቡና": [
+      "coffee"
+    ],
+    "ሥነ-ሥርዓት": [
+      "ceremony",
+      "ritual"
+    ],
+    "ስነ-ስርዓት": [
+      "ceremony",
+      "ritual"
+    ],
+    "ባህል": [
+      "culture"
+    ],
+    "ባህላዊ": [
+      "traditional",
+      "cultural"
+    ],
+    "ሸክላ": [
+      "clay"
+    ],
+    "ጀበና": [
+      "jebena",
+      "pot"
+    ],
+    "ዕቃ": [
+      "pot",
+      "item"
+    ],
+    "ወጪ ንግድ": [
+      "export"
+    ],
+    "ኤክስፖርት": [
+      "export"
+    ],
+    "ኢኮኖሚ": [
+      "economy"
+    ],
+    "ኤኮኖሚ": [
+      "economy"
+    ],
+    "ይርጋጨፌ": [
+      "yirgacheffe"
+    ],
+    "ሐረር": [
+      "harar"
+    ],
+    "ሲዳሞ": [
+      "sidamo"
+    ],
+    "ዓለም": [
+      "world"
+    ],
+    "አለም": [
+      "world"
+    ],
+    "ላሊበላ": [
+      "lalibela"
+    ],
+    "ውቅር": [
+      "monolithic",
+      "hewn"
+    ],
+    "ድንጋይ": [
+      "stone",
+      "rock"
+    ],
+    "አለት": [
+      "rock"
+    ],
+    "አብያተ ክርስቲያናት": [
+      "churches"
+    ],
+    "አብያተ ክርስቲያን": [
+      "churches"
+    ],
+    "ቤተክርስቲያን": [
+      "church"
+    ],
+    "ቤተ ክርስቲያን": [
+      "church"
+    ],
+    "ንጉስ": [
+      "king"
+    ],
+    "ንጉሥ": [
+      "king"
+    ],
+    "ንግደት": [
+      "pilgrimage"
+    ],
+    "ኦርቶዶክስ": [
+      "orthodox"
+    ],
+    "ጊዮርጊስ": [
+      "georgis"
+    ],
+    "ቅዱስ": [
+      "saint"
+    ],
+    "መስቀል": [
+      "cross"
+    ],
+    "ቅርስ": [
+      "heritage"
+    ],
+    "ምህንድስና": [
+      "engineering"
+    ],
+    "ስነ-ህንጻ": [
+      "architecture"
+    ],
+    "ሕንጻ": [
+      "building",
+      "architecture"
+    ],
+    "ዩኔስኮ": [
+      "unesco"
+    ],
+    "አዲስ አበባ": [
+      "addis ababa"
+    ],
+    "ዋና ከተማ": [
+      "capital"
+    ],
+    "ዲፕሎማሲ": [
+      "diplomatic",
+      "diplomacy"
+    ],
+    "ዲፕሎማሲያዊ": [
+      "diplomatic"
+    ],
+    "ማዕከል": [
+      "hub",
+      "center"
+    ],
+    "አፍሪካ": [
+      "africa"
+    ],
+    "ህብረት": [
+      "union"
+    ],
+    "ኅብረት": [
+      "union"
+    ],
+    "ዋና መስሪያ ቤት": [
+      "headquarters"
+    ],
+    "መንግስታት": [
+      "nations",
+      "governments"
+    ],
+    "የተባበሩት": [
+      "united"
+    ],
+    "ተመሠረተች": [
+      "founded"
+    ],
+    "ተመሠረተ": [
+      "founded"
+    ],
+    "አፄ": [
+      "emperor"
+    ],
+    "አጼ": [
+      "emperor"
+    ],
+    "እቴጌ": [
+      "empress"
+    ],
+    "ዕቴጌ": [
+      "empress"
+    ],
+    "ምኒልክ": [
+      "menelik"
+    ],
+    "ጣይቱ": [
+      "taytu"
+    ],
+    "ተራራ": [
+      "mount",
+      "mountain"
+    ],
+    "እንጦጦ": [
+      "entoto"
+    ],
+    "ገበያ": [
+      "market"
+    ],
+    "መርካቶ": [
+      "mercato"
+    ],
+    "ሉሲ": [
+      "lucy"
+    ],
+    "ድንቅነሽ": [
+      "dinkenesh"
+    ],
+    "ቅሪተ አካል": [
+      "fossil"
+    ],
+    "ሸለቆ": [
+      "valley"
+    ],
+    "አዋሽ": [
+      "awash"
+    ],
+    "ሰው መሰል": [
+      "hominid"
+    ],
+    "አጽም": [
+      "skeleton"
+    ],
+    "ሰው": [
+      "human",
+      "man"
+    ],
+    "የሰው ልጅ": [
+      "humankind",
+      "human"
+    ],
+    "ዝግመተ ለውጥ": [
+      "evolution"
+    ],
+    "የዝግመተ ለውጥ": [
+      "evolution"
+    ],
+    "መገኛ": [
+      "cradle",
+      "source"
+    ],
+    "ሰሜን": [
+      "simien",
+      "north"
+    ],
+    "ተራሮች": [
+      "mountains"
+    ],
+    "ብሔራዊ": [
+      "national"
+    ],
+    "ብሄራዊ": [
+      "national"
+    ],
+    "ፓርክ": [
+      "park"
+    ],
+    "የዱር እንስሳት": [
+      "wildlife"
+    ],
+    "እንስሳት": [
+      "wildlife",
+      "animals"
+    ],
+    "ተወላጅ": [
+      "endemic"
+    ],
+    "ዋሊያ": [
+      "walia"
+    ],
+    "ዋሊያ አይቤክስ": [
+      "ibex",
+      "walia"
+    ],
+    "ጭላዳ ዝንጀሮ": [
+      "gelada baboon",
+      "baboon"
+    ],
+    "ዝንጀሮ": [
+      "monkey",
+      "baboon"
+    ],
+    "ጭላዳ": [
+      "gelada"
+    ],
+    "ቀበሮ": [
+      "wolf",
+      "fox"
+    ],
+    "ቀይ ቀበሮ": [
+      "red wolf",
+      "wolf"
+    ],
+    "ራስ ዳሸን": [
+      "ras dashen"
+    ],
+    "ከፍተኛው": [
+      "highest"
+    ],
+    "ሯጮች": [
+      "runners"
+    ],
+    "ሯጭ": [
+      "runner"
+    ],
+    "አትሌት": [
+      "runner",
+      "athlete"
+    ],
+    "አትሌቶች": [
+      "athletes",
+      "runners"
+    ],
+    "አትሌቲክስ": [
+      "athletics"
+    ],
+    "ሩጫ": [
+      "running",
+      "run"
+    ],
+    "ኦሊምፒክ": [
+      "olympic",
+      "olympics"
+    ],
+    "ወርቅ": [
+      "gold"
+    ],
+    "ሜዳሊያ": [
+      "medal"
+    ],
+    "ሪከርዶች": [
+      "records"
+    ],
+    "ሪከርድ": [
+      "record"
+    ],
+    "ልምምድ": [
+      "training"
+    ],
+    "ጽናት": [
+      "endurance"
+    ],
+    "አክሱም": [
+      "axum"
+    ],
+    "መንግስት": [
+      "kingdom",
+      "state"
+    ],
+    "መንግሥት": [
+      "kingdom",
+      "state"
+    ],
+    "ሐውልቶች": [
+      "obelisks",
+      "stelae"
+    ],
+    "ሃውልቶች": [
+      "obelisks",
+      "stelae"
+    ],
+    "ሐውልት": [
+      "obelisk"
+    ],
+    "ሃውልት": [
+      "obelisk"
+    ],
+    "ታቦት": [
+      "ark"
+    ],
+    "ቃል ኪዳን": [
+      "covenant"
+    ],
+    "ማርያም": [
+      "mary"
+    ],
+    "ጽዮን": [
+      "zion"
+    ],
+    "አባይ": [
+      "blue nile"
+    ],
+    "ፏፏቴ": [
+      "waterfall",
+      "falls"
+    ],
+    "ፏፏቴዎች": [
+      "waterfalls",
+      "falls"
+    ],
+    "ወንዝ": [
+      "river"
+    ],
+    "ውኃ": [
+      "water"
+    ],
+    "ውሃ": [
+      "water"
+    ],
+    "ገባሪ": [
+      "tributary"
+    ],
+    "ጣና ሐይቅ": [
+      "lake tana"
+    ],
+    "አዲስ ዓመት": [
+      "new year"
+    ],
+    "እንቁጣጣሽ": [
+      "enkutatash",
+      "new year"
+    ],
+    "መስከረም": [
+      "september"
+    ],
+    "ዘመን አቆጣጠር": [
+      "calendar"
+    ],
+    "ክረምት": [
+      "rainy season",
+      "winter"
+    ],
+    "ጸደይ": [
+      "spring"
+    ],
+    "አደይ አበባ": [
+      "adey abeba"
+    ],
+    "አበባ": [
+      "flower"
+    ],
+    "ምግብ": [
+      "food"
+    ],
+    "እንጀራ": [
+      "injera"
+    ],
+    "ጤፍ": [
+      "teff"
+    ],
+    "ዱቄት": [
+      "flour"
+    ],
+    "ጥራጥሬ": [
+      "grain"
+    ],
+    "ወጥ": [
+      "stew"
+    ],
+    "ወጦች": [
+      "stews"
+    ],
+    "ዶሮ ወጥ": [
+      "doro wat"
+    ],
+    "ዶሮ": [
+      "chicken"
+    ],
+    "ጦርነት": [
+      "battle",
+      "war"
+    ],
+    "ድል": [
+      "victory"
+    ],
+    "ሉዓላዊነት": [
+      "sovereignty"
+    ],
+    "ነጻነት": [
+      "independence"
+    ],
+    "ነፃነት": [
+      "independence"
+    ],
+    "ቅኝ ግዛት": [
+      "colonialism"
+    ],
+    "ሕዳሴ": [
+      "renaissance"
+    ],
+    "ህዳሴ": [
+      "renaissance"
+    ],
+    "ግድብ": [
+      "dam"
+    ],
+    "የውኃ ኤሌክትሪክ": [
+      "hydroelectric"
+    ],
+    "የውሃ ኤሌክትሪክ": [
+      "hydroelectric"
+    ],
+    "ኤሌክትሪክ": [
+      "electricity"
+    ],
+    "ኃይል": [
+      "energy",
+      "power"
+    ],
+    "ኋይል": [
+      "energy",
+      "power"
+    ],
+    "ብሔራዊ አንድነት": [
+      "national unity"
+    ],
+    "ባህር": [
+      "bahir"
+    ],
+    "ዳር": [
+      "dar"
+    ],
+    "ባህር ዳር": [
+      "bahir dar"
+    ],
+    "ባህር ዳር ዩኒቨርሲቲ": [
+      "bahir dar university"
+    ],
+    "ዩኒቨርሲቲ": [
+      "university"
+    ]
+  }
+}

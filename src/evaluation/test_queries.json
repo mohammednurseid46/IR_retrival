@@ -1,0 +1,38 @@
+[
+  {
+    "query_id": "q1",
+    "query": "coffee ceremony",
+    "language": "english",
+    "relevant_docs": ["english_doc1", "amharic_doc1"]
+  },
+  {
+    "query_id": "q2",
+    "query": "ቡና ሥነ-ሥርዓት",
+    "language": "amharic",
+    "relevant_docs": ["english_doc1", "amharic_doc1"]
+  },
+  {
+    "query_id": "q3",
+    "query": "Lalibela rock churches",
+    "language": "english",
+    "relevant_docs": ["english_doc2", "amharic_doc2"]
+  },
+  {
+    "query_id": "q4",
+    "query": "የአድዋ ጦርነት",
+    "language": "amharic",
+    "relevant_docs": ["english_doc11", "amharic_doc11"]
+  },
+  {
+    "query_id": "q5",
+    "query": "Grand Renaissance Dam",
+    "language": "english",
+    "relevant_docs": ["english_doc12", "amharic_doc12"]
+  },
+  {
+    "query_id": "q6",
+    "query": "የሰሜን ተራሮች ብሔራዊ ፓርክ",
+    "language": "amharic",
+    "relevant_docs": ["english_doc5", "amharic_doc5"]
+  }
+]

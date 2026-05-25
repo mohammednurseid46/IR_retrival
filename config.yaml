@@ -1,0 +1,24 @@
+# Configuration for Cross-Lingual Information Retrieval System
+
+paths:
+  raw_english_dir: "data/raw/english"
+  raw_amharic_dir: "data/raw/amharic"
+  processed_dir: "data/processed"
+  stopwords_dir: "data/stopwords"
+  metadata_file: "data/metadata/metadata.json"
+  bilingual_dict: "src/translation/bilingual_dict.json"
+  cache_file: "data/processed/translation_cache.json"
+
+retrieval:
+  default_method: "bm25" # 'bm25' or 'tfidf'
+  bm25_k1: 1.5
+  bm25_b: 0.75
+
+language_detection:
+  ethiopic_threshold: 0.1
+
+advanced:
+  query_expansion: true
+  pseudo_relevance_feedback: false
+  feedback_num_docs: 2
+  feedback_num_terms: 2
