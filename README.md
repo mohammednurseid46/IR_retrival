@@ -1,101 +1,100 @@
-# Cross-Lingual Information Retrieval (CLIR) System (English ↔ Amharic)
+# Cross-Lingual Information Retrieval (CLIR) System — English ↔ Amharic
 
-A complete, end-to-end Multilingual Information Retrieval system built in Python using Flask for the web interface. The system allows users to query in one language (English or Amharic) and retrieve ranked, relevant documents written in either language (monolingual and cross-lingual search).
+This repository implements an end-to-end Cross-Lingual Information Retrieval system that accepts queries in English or Amharic and retrieves ranked documents written in either language. It demonstrates a full pipeline from preprocessing, indexing, and retrieval to an interactive Flask web UI and evaluation reports.
 
----
+## Highlights
 
-## Key Features
-
-1. **Robust Text Pre-processing**:
-   - **Language Detection**: Custom character-based unicode range detector (100% accurate because Latin and Ge'ez alphabets do not overlap).
-   - **Tokenization**: Standard word split for English; Ethiopic punctuation and separator handling (`፡`, `።`, `፣`, `፤`) for Amharic.
-   - **Stopword Removal**: Fully customizable English and Amharic stopword lists.
-   - **Normalization**: Collapsing homophones in Amharic (e.g., merging spelling variations of `h`, `s`, `a`, `ts` sounds) to resolve lexical variations, and simple suffix stemming.
-
-2. **Advanced Translation Module**:
-   - **Google Translate API integration**: Online free translating API calls.
-   - **Bilingual Dictionary Fallback**: Pre-built dictionary in `src/translation/bilingual_dict.json` to enable search even when offline.
-   - **Translation Caching**: Local JSON disk cache to store translations and speed up repetitive queries.
-
-3. **Custom Indexing & Retrieval Engine**:
-   - **Inverted Index**: Term-frequencies, postings list, document lengths, and metadata.
-   - **Dual Model Support**: High-performance **BM25** (with customizable $k_1$ and $b$) and standard **TF-IDF** scoring models.
-   - **Score Normalization**: Ensures that retrieval scores from different languages' indexes are merged fairly before joint ranking.
-
-4. **Advanced Retrieval Features**:
-   - **Query Expansion**: Enriches queries with thesaurus-based synonyms in both languages before retrieval.
-   - **Pseudo-Relevance Feedback (PRF)**: Implements a Rocchio-like feedback loop which takes top retrieved documents, extracts high tf-idf expansion terms, and executes a second-pass search.
-   - **Multilingual Embeddings (LaBSE)**: Code-level stub showing how to plug in Sentence-Transformers for dense multilingual retrieval.
-
-5. **Modern Web UI**:
-   - **Aesthetic**: Premium dark mode, radial glow gradients, glassmorphism cards, interactive badges.
-   - **Interactivity**: Dynamic AJAX searching with detected language badges, instant document expansion modal, and an interactive evaluation runner.
+- Language detection and language-specific preprocessing (Amharic normalization)
+- Hybrid translation (online translator + bilingual dictionary fallback)
+- Inverted index with BM25 and TF-IDF retrieval
+- Query expansion and pseudo-relevance feedback (PRF)
+- Offline evaluation suite (Precision, Recall, P@K, MAP)
+- Live query evaluation in the web UI when a query matches ground-truth
 
 ---
 
-## Directory Structure
+## Quickstart
 
-```
-├── data/
-│   ├── raw/                      # Original collected documents
-│   │   ├── english/              # 12 English documents
-│   │   └── amharic/              # 12 Amharic documents
-│   ├── processed/                # Intermediate preprocessed files and indexes
-│   ├── stopwords/                # Stopword lists
-│   └── metadata/                 # metadata.json
-├── src/                          # System modules
-│   ├── preprocessing/            # Tokenization, Normalization, Stopwords
-│   ├── language_detection/       # Unicode block ranges, Language detection
-│   ├── translation/              # Hybrid Translation, Dictionary, Cache
-│   ├── indexing/                 # Inverted Index, Builder, Loader
-│   ├── retrieval/                # TF-IDF, BM25, Cross-Lingual Search, Ranker
-│   ├── advanced/                 # Query Expansion, PRF, LaBSE Embeddings
-│   ├── evaluation/               # Metrics (P, R, P@K, MAP), Analyzer
-│   ├── api/                      # Flask App, Routes, Data Models
-│   └── utils/                    # File Handlers, Logger
-├── frontend/                     # Web pages & assets
-│   ├── templates/                # index.html, results.html
-│   └── static/                   # CSS (style.css), JS (main.js)
-├── tests/                        # Automated unit tests
-├── notebooks/                    # Experimentation notebooks
-└── reports/                      # Evaluation and Dataset reports
-```
+1. Clone and prepare environment:
 
----
-
-## Getting Started
-
-### Prerequisites
-Make sure you have Python 3.8+ installed.
-
-### 1. Install Dependencies
 ```bash
+git clone <repo-url>
+cd CrossLingualIR_AmharicEnglish
+python -m venv venv
+venv\Scripts\activate    # Windows
+source venv/bin/activate  # macOS / Linux
 pip install -r requirements.txt
 ```
 
-### 2. Build Inverted Indexes
-This scans all documents in `data/raw/`, processes them (tokenizes, filters stopwords, normalizes), generates intermediate processed files, and writes the indexes to `data/processed/`:
+2. Build indexes (scans `data/raw/` → writes to `data/processed/`):
+
 ```bash
 python run.py --build-index
 ```
 
-### 3. Run System Evaluations
-This runs our suite of 6 ground-truth test queries, computes macro-averaged Precision, Recall, Precision@K, and MAP across configurations (TF-IDF vs BM25 vs Query Expansion), and outputs a report in `reports/evaluation_results.md`:
+3. Run the web app (default: http://localhost:5000):
+
+```bash
+python run.py
+```
+
+4. Run offline evaluation (writes `reports/evaluation_results.md`):
+
 ```bash
 python run.py --evaluate
 ```
 
-### 4. Run the Web Application
-To launch the Flask search interface:
-```bash
-python run.py
-```
-Open [http://localhost:5000](http://localhost:5000) in your web browser to start searching!
+5. Run tests:
 
----
-
-## Running Unit Tests
-We have built unit tests covering tokenization, normalization, bilingual dictionary lookup, translation cache, scoring formulas, and retriever routing. Run them with:
 ```bash
 python -m unittest discover tests
 ```
+
+---
+
+## Project layout (important files)
+
+- `run.py` — CLI entrypoint for index building, evaluation, and running the Flask server
+- `src/api/app.py`, `src/api/routes.py` — Flask app and endpoints (search, document, evaluate)
+- `src/preprocessing/` — `tokenizer.py`, `normalizer.py`, `stopword_remover.py`
+- `src/indexing/` — index builder and loader
+- `src/retrieval/` — `bm25.py`, `tfidf.py`, `cross_lingual.py` (retriever orchestration)
+- `src/evaluation/` — `analyzer.py`, `metrics.py`, `test_queries.json`
+- `frontend/` — `templates/` and `static/` (UI assets)
+
+---
+
+## Evaluation details
+
+Ground-truth queries are in `src/evaluation/test_queries.json`. The analyzer (`src/evaluation/analyzer.py`) runs the set of queries under multiple configurations and writes a markdown report to `reports/evaluation_results.md`.
+
+The server also attaches single-query metrics (Precision, Recall, P@1/3/5, AP) to API search responses when the submitted query text exactly matches a ground-truth query, enabling live evaluation in the UI.
+
+---
+
+## Dependencies and optional integrations
+
+See `requirements.txt` for required libraries. Core dependencies include `flask` and `nltk`. Optional advanced enhancements you can add:
+
+- `spaCy` for more advanced tokenization and NER
+- `elasticsearch` for a scalable search backend
+
+Example install commands:
+
+```bash
+pip install spacy
+python -m spacy download en_core_web_sm
+pip install elasticsearch
+```
+
+---
+
+## Contributing
+
+1. Fork and branch.
+2. Run tests and linters.
+3. Open a pull request describing your changes.
+
+---
+
+If you'd like, I can add spaCy tokenization or an optional Elasticsearch backend next — tell me which and I'll scaffold it and update `requirements.txt`.

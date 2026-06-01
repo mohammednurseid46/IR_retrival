@@ -74,12 +74,21 @@ def search():
                     search_query = search_query + " " + " ".join(feedback_terms)
                     results = r.search(search_query, method=method, target_lang=target_lang)
 
+        # Attach query-level evaluation if the query has a ground-truth judgment
+        evaluation = None
+        try:
+            analyzer = EvaluationAnalyzer()
+            evaluation = analyzer.evaluate_single_query(query, results)
+        except Exception:
+            evaluation = None
+
         return jsonify({
             'results': results,
             'query_detected': query_lang,
             'query_used': search_query,
             'expansion_terms': expansion_terms,
-            'feedback_terms': feedback_terms
+            'feedback_terms': feedback_terms,
+            'evaluation': evaluation
         })
 
     except Exception as e:

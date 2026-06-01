@@ -6,9 +6,9 @@ This document analyzes the performance of the English-Amharic Cross-Lingual Info
 
 | Configuration | Mean Precision | Mean Recall | Mean P@1 | Mean P@3 | Mean P@5 | Mean Average Precision (MAP) |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| TF-IDF (No Expansion) | 0.944 | 0.833 | 1.000 | 0.556 | 0.333 | 0.833 |
-| BM25 (No Expansion) | 0.944 | 0.833 | 1.000 | 0.556 | 0.333 | 0.833 |
-| BM25 (With Query Expansion) | 0.944 | 0.917 | 1.000 | 0.611 | 0.367 | 0.917 |
+| TF-IDF (No Expansion) | 0.515 | 0.542 | 0.500 | 0.333 | 0.233 | 0.472 |
+| BM25 (No Expansion) | 0.515 | 0.542 | 0.500 | 0.333 | 0.233 | 0.472 |
+| BM25 (With Query Expansion) | 0.515 | 0.583 | 0.500 | 0.361 | 0.250 | 0.514 |
 
 ## Detailed Query-by-Query Performance (BM25 with Query Expansion)
 
@@ -20,6 +20,12 @@ This document analyzes the performance of the English-Amharic Cross-Lingual Info
 | q4 | የአድዋ ጦርነት | amharic | 1.000 | 1.000 | 1.000 | 0.667 | 0.400 | 1.000 |
 | q5 | Grand Renaissance Dam | english | 1.000 | 1.000 | 1.000 | 0.667 | 0.400 | 1.000 |
 | q6 | የሰሜን ተራሮች ብሔራዊ ፓርክ | amharic | 0.667 | 1.000 | 1.000 | 0.667 | 0.400 | 1.000 |
+| q7 | Addis Ababa University | english | 0.400 | 1.000 | 0.000 | 0.333 | 0.400 | 0.417 |
+| q8 | የኢትዮጵያ ዩኒቨርሲቲዎች | amharic | 0.111 | 0.500 | 0.000 | 0.333 | 0.400 | 0.250 |
+| q9 | Ethiopian technology digital innovation | english | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
+| q10 | የኢትዮጵያ ቴክኖሎጂ | amharic | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
+| q11 | Adama Science Technology University | english | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
+| q12 | Ethiopian higher education expansion universities | english | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
 
 ## Analysis & Key Findings
 

@@ -19,6 +19,12 @@ class EvaluationAnalyzer:
         self.retriever = CrossLingualRetriever()
         self.expander = QueryExpander()
 
+        self.test_queries = self.load_queries()
+        self.query_map = {
+            q['query'].strip().lower(): q
+            for q in self.test_queries
+        }
+
     def load_queries(self):
         with open(self.queries_file, 'r', encoding='utf-8') as f:
             return json.load(f)
@@ -42,27 +48,19 @@ class EvaluationAnalyzer:
                 
             # Perform search
             retrieved_results = self.retriever.search(search_query, method=method, target_lang='both')
-            retrieved_ids = [doc['doc_id'] for doc in retrieved_results]
-            
-            # Compute metrics
-            prec = Metrics.precision(retrieved_ids, relevant)
-            rec = Metrics.recall(retrieved_ids, relevant)
-            p1 = Metrics.precision_at_k(retrieved_ids, relevant, 1)
-            p3 = Metrics.precision_at_k(retrieved_ids, relevant, 3)
-            p5 = Metrics.precision_at_k(retrieved_ids, relevant, 5)
-            ap = Metrics.average_precision(retrieved_ids, relevant)
+            evaluation = self.evaluate_results(relevant, retrieved_results)
             
             results.append({
                 'query_id': q['query_id'],
                 'query': query_text,
                 'language': q['language'],
-                'precision': prec,
-                'recall': rec,
-                'p@1': p1,
-                'p@3': p3,
-                'p@5': p5,
-                'ap': ap,
-                'retrieved': len(retrieved_ids)
+                'precision': evaluation['precision'],
+                'recall': evaluation['recall'],
+                'p@1': evaluation['p@1'],
+                'p@3': evaluation['p@3'],
+                'p@5': evaluation['p@5'],
+                'ap': evaluation['ap'],
+                'retrieved': len(retrieved_results)
             })
             
         # Compute macro-averages
@@ -85,6 +83,38 @@ class EvaluationAnalyzer:
                 'map': map_score
             }
         }
+
+    def find_query_judgment(self, query_text):
+        if not query_text:
+            return None
+        return self.query_map.get(query_text.strip().lower())
+
+    def evaluate_results(self, relevant, retrieved_results):
+        retrieved_ids = [doc['doc_id'] for doc in retrieved_results]
+        return {
+            'precision': Metrics.precision(retrieved_ids, relevant),
+            'recall': Metrics.recall(retrieved_ids, relevant),
+            'p@1': Metrics.precision_at_k(retrieved_ids, relevant, 1),
+            'p@3': Metrics.precision_at_k(retrieved_ids, relevant, 3),
+            'p@5': Metrics.precision_at_k(retrieved_ids, relevant, 5),
+            'ap': Metrics.average_precision(retrieved_ids, relevant),
+            'retrieved': len(retrieved_ids)
+        }
+
+    def evaluate_single_query(self, query_text, retrieved_results):
+        query_item = self.find_query_judgment(query_text)
+        if not query_item:
+            return None
+
+        relevant = set(query_item['relevant_docs'])
+        evaluation = self.evaluate_results(relevant, retrieved_results)
+        evaluation.update({
+            'query_id': query_item['query_id'],
+            'query': query_item['query'],
+            'language': query_item['language'],
+            'relevant_docs': list(relevant)
+        })
+        return evaluation
 
     def run_analysis(self):
         queries = self.load_queries()

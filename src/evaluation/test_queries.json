@@ -34,5 +34,41 @@
     "query": "የሰሜን ተራሮች ብሔራዊ ፓርክ",
     "language": "amharic",
     "relevant_docs": ["english_doc5", "amharic_doc5"]
+  },
+  {
+    "query_id": "q7",
+    "query": "Addis Ababa University",
+    "language": "english",
+    "relevant_docs": ["english_doc13", "amharic_doc13"]
+  },
+  {
+    "query_id": "q8",
+    "query": "የኢትዮጵያ ዩኒቨርሲቲዎች",
+    "language": "amharic",
+    "relevant_docs": ["english_doc13", "english_doc14", "amharic_doc13", "amharic_doc14"]
+  },
+  {
+    "query_id": "q9",
+    "query": "Ethiopian technology digital innovation",
+    "language": "english",
+    "relevant_docs": ["english_doc15", "amharic_doc15"]
+  },
+  {
+    "query_id": "q10",
+    "query": "የኢትዮጵያ ቴክኖሎጂ",
+    "language": "amharic",
+    "relevant_docs": ["english_doc15", "english_doc16", "amharic_doc15", "amharic_doc16"]
+  },
+  {
+    "query_id": "q11",
+    "query": "Adama Science Technology University",
+    "language": "english",
+    "relevant_docs": ["english_doc16", "amharic_doc16"]
+  },
+  {
+    "query_id": "q12",
+    "query": "Ethiopian higher education expansion universities",
+    "language": "english",
+    "relevant_docs": ["english_doc14", "amharic_doc14"]
   }
 ]

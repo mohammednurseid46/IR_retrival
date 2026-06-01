@@ -5,22 +5,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const langSelect = document.getElementById('lang-select');
     const expandCheck = document.getElementById('expand-check');
     const feedbackCheck = document.getElementById('feedback-check');
-    
+
     const resultsContainer = document.getElementById('results-container');
     const resultsHeader = document.getElementById('results-header-text');
     const detectedBadge = document.getElementById('detected-badge');
     const detectedText = document.getElementById('detected-text');
-    
+
     // Modal elements
     const docModal = document.getElementById('doc-modal');
     const modalClose = document.getElementById('modal-close');
     const modalTitle = document.getElementById('modal-title');
     const modalBody = document.getElementById('modal-body');
-    
+
     // Evaluation elements
     const runEvalBtn = document.getElementById('run-eval-btn');
     const evalResultsWrapper = document.getElementById('eval-results-wrapper');
     const evalTableBody = document.getElementById('eval-table-body');
+    const queryEvalPanel = document.getElementById('query-eval-panel');
+    const queryEvalDetails = document.getElementById('query-eval-details');
+    const queryEvalBody = document.getElementById('query-eval-body');
 
     // Handle Search Form Submission
     searchForm.addEventListener('submit', (e) => {
@@ -41,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         resultsHeader.textContent = 'Searching...';
         resultsContainer.innerHTML = '<div style="text-align: center; color: var(--text-secondary); width: 100%; padding: 2rem;">Retrieving documents from index...</div>';
         detectedBadge.className = 'detected-badge';
-        
+
         const params = new URLSearchParams({
             q: query,
             method: method,
@@ -64,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderResults(data) {
         const results = data.results || [];
-        
+
         // Show detected language
         if (data.query_detected) {
             detectedText.textContent = data.query_detected.toUpperCase();
@@ -74,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         resultsHeader.textContent = `Search Results (${results.length} found)`;
-        
+
         if (results.length === 0) {
             resultsContainer.innerHTML = `
                 <div style="text-align: center; color: var(--text-secondary); width: 100%; padding: 3rem;">
@@ -88,9 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.createElement('div');
             card.className = 'result-card';
             card.dataset.id = doc.doc_id;
-            
+
             const scorePercent = Math.round(doc.score * 100);
-            
+
             card.innerHTML = `
                 <div class="result-header-row">
                     <h3 class="result-title">${doc.title}</h3>
@@ -110,6 +113,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
             resultsContainer.appendChild(card);
         });
+
+        if (data.evaluation) {
+            renderQueryEvaluation(data.evaluation);
+        } else {
+            hideQueryEvaluation();
+        }
+    }
+
+    function renderQueryEvaluation(evaluation) {
+        queryEvalPanel.style.display = 'block';
+        queryEvalDetails.innerHTML = `
+            <p style="margin:0.2rem 0; color: var(--text-secondary);">Evaluated against ground-truth query <strong>${evaluation.query_id}</strong> (${evaluation.query}) in <strong>${evaluation.language}</strong>.</p>
+            <p style="margin:0.2rem 0; color: var(--text-secondary);">Relevant docs: ${evaluation.relevant_docs.join(', ')}</p>
+        `;
+        queryEvalBody.innerHTML = `
+            <tr>
+                <td>${evaluation.query_id}</td>
+                <td>${(evaluation.precision * 100).toFixed(1)}%</td>
+                <td>${(evaluation.recall * 100).toFixed(1)}%</td>
+                <td>${(evaluation['p@1'] * 100).toFixed(1)}%</td>
+                <td>${(evaluation['p@3'] * 100).toFixed(1)}%</td>
+                <td>${(evaluation['p@5'] * 100).toFixed(1)}%</td>
+                <td>${evaluation.ap.toFixed(3)}</td>
+            </tr>
+        `;
+    }
+
+    function hideQueryEvaluation() {
+        queryEvalPanel.style.display = 'none';
+        queryEvalDetails.innerHTML = '';
+        queryEvalBody.innerHTML = '';
     }
 
     // Modal Control
@@ -186,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             evalTableBody.appendChild(tr);
         }
-        
+
         // Scroll to evaluation panel
         document.getElementById('evaluation').scrollIntoView({ behavior: 'smooth' });
     }

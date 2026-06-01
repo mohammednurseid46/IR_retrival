@@ -9,6 +9,7 @@ def main():
     parser = argparse.ArgumentParser(description="Cross-Lingual Information Retrieval (CLIR) System")
     parser.add_argument('--build-index', action='store_true', help="Rebuild inverted indexes from raw data")
     parser.add_argument('--evaluate', action='store_true', help="Run evaluation suite and exit")
+    parser.add_argument('--host', type=str, default='localhost', help="Host to run Flask server on")
     parser.add_argument('--port', type=int, default=5000, help="Port to run Flask server on")
     args = parser.parse_args()
 
@@ -36,7 +37,7 @@ def main():
     # 3. Boot Flask App
     print("Starting Flask Web Application...")
     app = create_app()
-    app.run(host='0.0.0.0', port=args.port, debug=True)
+    app.run(host=args.host, port=args.port, debug=True)
 
 if __name__ == '__main__':
     main()
