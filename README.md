@@ -52,6 +52,44 @@ python -m unittest discover tests
 
 ---
 
+## Database usage
+
+This system does **not** use a database system such as SQLite, PostgreSQL, MySQL, or MongoDB.
+
+Instead, it uses the file system:
+
+- Source documents are read from `data/raw/english/` and `data/raw/amharic/`.
+- Processed tokens are saved under `data/processed/`.
+- English and Amharic inverted indexes are saved as `data/processed/english_index.json` and `data/processed/amharic_index.json`.
+- Document metadata and original document content are saved in `data/metadata/metadata.json`.
+- Translation results may be cached in `data/processed/translation_cache.json`.
+
+The indexes and metadata are loaded into memory when the application handles its first search request. Therefore, no database server, database connection, migrations, or database credentials are required.
+
+## How the system works after startup
+
+After running `python run.py`, Flask starts the web application at `http://localhost:5000`. The frontend is served by Flask, so a separate frontend server is not required.
+
+The typical request flow is:
+
+1. The user enters an English or Amharic query in the web interface.
+2. The browser sends the query to the Flask `/search` endpoint.
+3. The backend detects the query language and preprocesses the query using tokenization, stop-word removal, and normalization.
+4. If the query language differs from the target document language, the translator converts the query using the online translator and bilingual dictionary fallback.
+5. The backend searches the in-memory English and/or Amharic JSON indexes using BM25 or TF-IDF.
+6. Optional query expansion and pseudo-relevance feedback can refine the search query.
+7. Results are ranked and returned as JSON, including document title, snippet, language, document ID, and relevance score.
+8. The frontend displays the ranked results. Selecting a result requests its full content through `/document/<doc_id>`.
+9. The evaluation button sends a `POST` request to `/evaluate`, which runs the evaluation suite and displays the summary metrics.
+
+If the index files do not exist when the application starts, `run.py` automatically builds them before starting Flask. You can also rebuild them explicitly with:
+
+```bash
+python run.py --build-index
+```
+
+---
+
 ## Project layout (important files)
 
 - `run.py` — CLI entrypoint for index building, evaluation, and running the Flask server
