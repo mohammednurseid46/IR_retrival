@@ -5,6 +5,9 @@ from src.indexing import IndexBuilder
 from src.api.app import create_app
 from src.evaluation import EvaluationAnalyzer
 
+# WSGI entry point for Gunicorn (for example, `gunicorn run:app`).
+app = create_app()
+
 def main():
     parser = argparse.ArgumentParser(description="Cross-Lingual Information Retrieval (CLIR) System")
     parser.add_argument('--build-index', action='store_true', help="Rebuild inverted indexes from raw data")
@@ -36,7 +39,6 @@ def main():
 
     # 3. Boot Flask App
     print("Starting Flask Web Application...")
-    app = create_app()
     app.run(host=args.host, port=args.port, debug=True)
 
 if __name__ == '__main__':

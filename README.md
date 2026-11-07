@@ -50,6 +50,24 @@ python run.py --evaluate
 python -m unittest discover tests
 ```
 
+## Deploying to Render
+
+Use **Python** as the service runtime. Set the build command to:
+
+```bash
+pip install -r requirements.txt && python scripts/build_index.py
+```
+
+Set the start command to:
+
+```bash
+gunicorn --bind 0.0.0.0:$PORT run:app
+```
+
+The index files are generated during the Render build because generated
+processed data is intentionally not committed to Git. `gunicorn` is included
+in `requirements.txt`; no database or separate frontend service is required.
+
 ---
 
 ## Database usage
