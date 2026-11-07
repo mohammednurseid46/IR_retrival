@@ -1,5 +1,17 @@
 # Cross-Lingual Information Retrieval (CLIR) System — English ↔ Amharic
 
+[Live Demo](https://ir-retrival.onrender.com/)
+
+## 🚀 Live Application
+Check out the deployed version of the Cross-Lingual IR System here:
+**[ir-retrival.onrender.com](https://ir-retrival.onrender.com/)**
+
+# Cross-Lingual IR (Amharic-English)
+[🔗 View Live Project on Render](https://ir-retrival.onrender.com/)
+
+A brief description of your project goes here...
+
+
 This repository implements an end-to-end Cross-Lingual Information Retrieval system that accepts queries in English or Amharic and retrieves ranked documents written in either language. It demonstrates a full pipeline from preprocessing, indexing, and retrieval to an interactive Flask web UI and evaluation reports.
 
 ## Highlights
